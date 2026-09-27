@@ -1,4 +1,4 @@
-# Math Notes
+# Ameet Rao Math Notes
 
 A static website of math notes and practice problems. No build step, no dependencies.
 Open `index.html` directly, or serve the folder with any static host (e.g. GitHub Pages).
@@ -37,3 +37,9 @@ images/                     Course images
 
 - `images/linear-algebra-placeholder.svg` is a placeholder. Replace it with a real image
   and update the `<img>` in `index.html`.
+
+## Hosting (GitHub Pages)
+
+Published at https://ameet-rao.github.io/MathNotes/ from the repository root of the
+default branch (Settings → Pages → Deploy from a branch). `.nojekyll` tells Pages to
+serve the files as-is. All links are relative, so the site works under the `/MathNotes/` path.
