@@ -42,6 +42,6 @@ and change the id, heading and PDFs.
 
 ## Hosting (GitHub Pages)
 
-Published at https://ameet-rao.github.io/MathNotes/ from the repository root of the
-default branch (Settings → Pages → Deploy from a branch). `.nojekyll` tells Pages to
-serve the files as-is. All links are relative, so the site works under the `/MathNotes/` path.
+Published at https://mathnotez.github.io/ from the repository `mathnotez/mathnotez.github.io`
+(Settings → Pages → Deploy from a branch, repository root). `.nojekyll` tells Pages to
+serve the files as-is. All links are relative, so the site works at any address.
