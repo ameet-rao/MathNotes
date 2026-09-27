@@ -19,13 +19,20 @@ images/                     Course images
 
 1. Put the PDF in `courses/<course>/notes/` or `courses/<course>/practice/`,
    named after the topic it covers.
-2. Add a line to that course's `index.html` under the matching section:
+2. Add a line to that course's `index.html` under the right chapter's Notes or Practice Problems list:
 
    ```html
    <li><a href="../courses/<course>/notes/<file>.pdf" target="_blank">Title From The PDF <span class="tag">(PDF)</span></a></li>
    ```
 
    If the section still says "No ... posted yet", replace that line with a `<ul class="pdf-list">` list.
+
+## Adding a chapter
+
+In the course's `index.html`, add a link to the `chapters` list at the top
+(e.g. `<li><a href="#chapter-12">Chapter 12 &ndash; ...</a></li>`), then copy the
+Chapter 11 block (the `<h2 id="chapter-11">` heading and its Notes and Practice Problems lists)
+and change the id, heading and PDFs.
 
 ## Adding a course
 

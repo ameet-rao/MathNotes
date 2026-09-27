@@ -79,13 +79,26 @@ h1 {
 }
 
 /* Course page sections */
-.jump { margin: -12px 0 28px; }
+.chapters {
+  margin: -8px 0 24px;
+  padding-left: 20px;
+}
+
+.chapters li { padding: 4px 0; }
 
 h2 {
   font-size: 20px;
   margin: 32px 0 8px;
   padding-bottom: 6px;
   border-bottom: 2px solid #222;
+}
+
+h3 {
+  font-size: 16px;
+  margin: 20px 0 4px;
+  color: #444;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
 
 .pdf-list {
