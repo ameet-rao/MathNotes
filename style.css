@@ -1,17 +1,48 @@
+/* Blue-ink-on-graph-paper theme. Colors and fonts live here. */
+:root {
+  --paper: #f6f5f0;
+  --card: #fffffd;
+  --ink: #1d3a9e;          /* body text */
+  --ink-deep: #0f2170;     /* titles */
+  --ink-soft: #5b72c2;     /* secondary text */
+  --accent: #2f5ee8;       /* favicon blue */
+  --margin-red: #e0473c;   /* notebook margin rule */
+  --grid: rgba(47, 94, 232, 0.07);
+  --grid-major: rgba(47, 94, 232, 0.12);
+  --serif: "Times New Roman", Times, serif;
+  --sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
 * { box-sizing: border-box; }
 
 body {
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  color: #222;
-  background: #fff;
+  font-family: var(--serif);
+  font-size: 18px;
   line-height: 1.5;
+  color: var(--ink);
+  background-color: var(--paper);
+  /* graph paper: fine 20px grid with a heavier line every 100px */
+  background-image:
+    linear-gradient(var(--grid-major) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-major) 1px, transparent 1px),
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+  min-height: 100vh;
 }
 
-a { color: #1a4f8b; }
+a { color: var(--accent); }
 
+h1, h2, h3, .site-name, .course-card span {
+  font-family: var(--sans);
+  color: var(--ink-deep);
+}
+
+/* Header: solid blue band */
 header {
-  border-bottom: 1px solid #ddd;
+  background: var(--accent);
+  border-bottom: 3px solid var(--ink-deep);
 }
 
 header .inner {
@@ -21,31 +52,61 @@ header .inner {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 16px;
 }
 
+header a { color: #fff; }
+
 header .site-name {
-  font-weight: bold;
+  color: #fff;
+  font-weight: 700;
   font-size: 18px;
-  color: #222;
+  letter-spacing: 0.01em;
   text-decoration: none;
 }
 
+header .inner > a:last-child {
+  font-family: var(--sans);
+  font-size: 15px;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+header .inner > a:last-child:hover { border-bottom-color: #fff; }
+
+/* Main column with a red notebook margin line on the left */
 main {
   max-width: 900px;
   margin: 0 auto;
-  padding: 24px 16px 48px;
+  min-height: calc(100vh - 58px);
+  padding: 32px 16px 64px 40px;
+  position: relative;
+}
+
+main::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 20px;
+  width: 2px;
+  background: var(--margin-red);
+  opacity: 0.55;
 }
 
 h1 {
-  font-size: 28px;
-  margin: 8px 0 24px;
+  font-size: 34px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+  margin: 0 0 24px;
 }
 
 /* Home page course cards */
 .courses {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 24px;
+  gap: 28px;
 }
 
 @media (max-width: 600px) {
@@ -54,71 +115,118 @@ h1 {
 
 .course-card {
   display: block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  overflow: hidden;
-  color: #222;
+  background: var(--card);
+  border: 2px solid var(--ink-deep);
+  box-shadow: 6px 6px 0 var(--accent);
   text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
-.course-card:hover { border-color: #1a4f8b; }
+.course-card:hover,
+.course-card:focus-visible {
+  transform: translate(-2px, -2px);
+  box-shadow: 8px 8px 0 var(--accent);
+}
 
 .course-card img {
   display: block;
   width: 100%;
   aspect-ratio: 2.2 / 1;
   object-fit: cover;
-  background: #e9ecef;
+  border-bottom: 2px solid var(--ink-deep);
+  background: var(--paper);
 }
 
 .course-card span {
   display: block;
-  padding: 12px 14px;
-  font-size: 18px;
-  font-weight: bold;
+  padding: 12px 16px;
+  font-size: 20px;
+  font-weight: 700;
 }
 
-/* Course page sections */
+/* Course page: chapter list */
 .chapters {
-  margin: -8px 0 24px;
-  padding-left: 20px;
+  margin: -8px 0 28px;
+  padding-left: 22px;
 }
 
 .chapters li { padding: 4px 0; }
 
+.chapters a { text-underline-offset: 3px; }
+
 h2 {
-  font-size: 20px;
-  margin: 32px 0 8px;
+  font-size: 23px;
+  font-weight: 700;
+  margin: 36px 0 8px;
   padding-bottom: 6px;
-  border-bottom: 2px solid #222;
+  border-bottom: 2px solid var(--ink-deep);
 }
 
 h3 {
-  font-size: 16px;
-  margin: 20px 0 4px;
-  color: #444;
+  font-size: 14px;
+  font-weight: 700;
+  margin: 24px 0 4px;
+  color: var(--accent);
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.08em;
 }
 
 .pdf-list {
   list-style: none;
   margin: 0;
   padding: 0;
+  background: var(--card);
+  border: 1px solid rgba(15, 33, 112, 0.18);
 }
 
-.pdf-list li { border-bottom: 1px solid #e5e5e5; }
+.pdf-list li + li { border-top: 1px dashed rgba(15, 33, 112, 0.2); }
 
 .pdf-list a {
   display: block;
-  padding: 12px 4px;
+  padding: 12px 14px;
+  color: var(--ink);
   text-decoration: none;
+  transition: background-color 0.15s ease, padding-left 0.15s ease;
 }
 
-.pdf-list a:hover { background: #f4f7fb; text-decoration: underline; }
+.pdf-list a::before {
+  content: "\2192\00a0\00a0";
+  color: var(--margin-red);
+}
 
-.pdf-list a::before { content: "\2192\00a0\00a0"; color: #666; }
+.pdf-list a:hover,
+.pdf-list a:focus-visible {
+  background: rgba(47, 94, 232, 0.07);
+  padding-left: 20px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
 
-.pdf-list .tag { color: #888; font-size: 13px; }
+.pdf-list .tag {
+  color: var(--ink-soft);
+  font-size: 14px;
+}
 
-.empty { color: #777; font-style: italic; }
+.empty {
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
+/* One staggered reveal on page load */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: none; }
+}
+
+main > * { animation: rise 0.5s ease both; }
+main > *:nth-child(2) { animation-delay: 0.08s; }
+main > *:nth-child(3) { animation-delay: 0.16s; }
+main > *:nth-child(4) { animation-delay: 0.24s; }
+main > *:nth-child(5) { animation-delay: 0.32s; }
+main > *:nth-child(6) { animation-delay: 0.40s; }
+main > *:nth-child(n+7) { animation-delay: 0.48s; }
+
+@media (prefers-reduced-motion: reduce) {
+  main > * { animation: none; }
+  .course-card, .pdf-list a { transition: none; }
+}
