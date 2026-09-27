@@ -33,11 +33,6 @@ images/                     Course images
 2. Create `courses/differential-equations/notes/` and `.../practice/`.
 3. Add an image to `images/` and copy a course card in the root `index.html`.
 
-## Placeholders
-
-- `images/linear-algebra-placeholder.svg` is a placeholder. Replace it with a real image
-  and update the `<img>` in `index.html`.
-
 ## Hosting (GitHub Pages)
 
 Published at https://ameet-rao.github.io/MathNotes/ from the repository root of the
