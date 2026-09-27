@@ -9,7 +9,6 @@
   --accent-red: #e0473c;   /* link arrows */
   --grid: rgba(47, 94, 232, 0.07);
   --grid-major: rgba(47, 94, 232, 0.12);
-  --serif: "Times New Roman", Times, serif;
   --sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
@@ -17,8 +16,8 @@
 
 body {
   margin: 0;
-  font-family: var(--serif);
-  font-size: 18px;
+  font-family: var(--sans);
+  font-size: 17px;
   line-height: 1.5;
   color: var(--ink);
   background-color: var(--paper);
@@ -35,7 +34,6 @@ body {
 a { color: var(--accent); }
 
 h1, h2, h3, .site-name, .course-card span {
-  font-family: var(--sans);
   color: var(--ink-deep);
 }
 
@@ -66,7 +64,6 @@ header .site-name {
 }
 
 header .inner > a:last-child {
-  font-family: var(--sans);
   font-size: 15px;
   text-decoration: none;
   border-bottom: 1px solid rgba(255, 255, 255, 0.6);
@@ -191,7 +188,7 @@ h3 {
 
 .pdf-list .tag {
   color: var(--ink-soft);
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .empty {
