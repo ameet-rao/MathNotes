@@ -6,7 +6,7 @@
   --ink-deep: #0f2170;     /* titles */
   --ink-soft: #5b72c2;     /* secondary text */
   --accent: #2f5ee8;       /* favicon blue */
-  --margin-red: #e0473c;   /* notebook margin rule */
+  --accent-red: #e0473c;   /* link arrows */
   --grid: rgba(47, 94, 232, 0.07);
   --grid-major: rgba(47, 94, 232, 0.12);
   --serif: "Times New Roman", Times, serif;
@@ -74,24 +74,11 @@ header .inner > a:last-child {
 
 header .inner > a:last-child:hover { border-bottom-color: #fff; }
 
-/* Main column with a red notebook margin line on the left */
+/* Main column */
 main {
   max-width: 900px;
   margin: 0 auto;
-  min-height: calc(100vh - 58px);
-  padding: 32px 16px 64px 40px;
-  position: relative;
-}
-
-main::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 20px;
-  width: 2px;
-  background: var(--margin-red);
-  opacity: 0.55;
+  padding: 32px 16px 64px;
 }
 
 h1 {
@@ -191,7 +178,7 @@ h3 {
 
 .pdf-list a::before {
   content: "\2192\00a0\00a0";
-  color: var(--margin-red);
+  color: var(--accent-red);
 }
 
 .pdf-list a:hover,
